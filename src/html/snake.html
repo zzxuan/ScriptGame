@@ -1,0 +1,42 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>游戏大战</title>
+</head>
+<body>
+	<canvas id = mycanvas width="500" height="500">
+		您的浏览器不支持
+	</canvas>
+	<script src="snkf.js"></script>
+	<script type=text/javascript>
+		
+			//----定义脚本方法-------
+			function expscriptfun(){
+			var dic=getdic();//用来做全局存储的字典
+			var fd=getfood();
+			var fdx=fd.x;
+			var fdy=fd.y;
+			var w=getwidth();
+			var h=getheight();
+			var snk=getsnake();//二维数组
+			var hx=snk[0].x;
+			var hy=snk[0].y;
+			var d=direction();
+			
+		}
+
+		//-----------------------
+		init();
+		draw();
+		var timer=setInterval(function(){
+			clear();
+			expscriptfun();
+			if(isdead()){
+				clearInterval(timer);
+			}
+			movesnake();
+			draw();
+		},25);
+	</script>
+</body>

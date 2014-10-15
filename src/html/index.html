@@ -1,0 +1,34 @@
+﻿<html>
+<head>
+    <title>游戏大战</title>
+	<script src="snkf.js"></script>
+	<script src="fun.js"></script>
+	<script language="javascript" type="text/javascript"> 
+		function startGame(){
+			var arg=getParam() ;
+			if(arg!=""&&window.localStorage){
+				var storage = window.localStorage;
+				var src = storage.getItem(arg);
+				action(src,window.location.href);
+			}
+			else{
+				alert('请选择脚本');
+			}
+		}
+	</script>
+</head>
+<body>
+<h1>
+	游戏大战
+</h1>
+	<br>
+		<button  onclick="window.location.href='selectscript.html'">选择脚本</button>
+		<br>
+		<button onclick="window.location.href='editscrpt.html';">编辑脚本</button>
+		<br>
+		<button onclick=startGame() >开始游戏</button>
+	</br>
+	
+</body>
+
+</html>

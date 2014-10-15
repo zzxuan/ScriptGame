@@ -1,0 +1,48 @@
+<html>
+<head>
+	<title>游戏大战</title>
+</head>
+<h1>
+	游戏大战
+</h1>
+<body>
+	<script type="text/javascript">
+		if(window.localStorage){
+			  var storage = window.localStorage;
+			  if(storage.length<1){
+				document.write("没有可载入的脚本");
+			  }
+			  else{
+				  for(var i=0;i<storage.length;i++){
+				  //key(i)获得相应的键，再用getItem()方法获得对应的值
+				 // document.write(storage.key(i)+ " : " + storage.getItem(storage.key(i)) + "<br>");
+				  document.write("<br><input type=\"radio\" name=\"identity\" value=\""+storage.key(i)+"\"/>"+storage.key(i)+" </br>");
+				 }
+			 }
+			}else{
+			 document.write("浏览器不支持");
+			}
+		function selectdone(){
+			var key="";
+			var objs = document.getElementsByName("identity");    
+			for(var i=0;i<objs.length;i++){   
+			  if(objs[i].checked){   
+				key=objs[i].value;
+			  }
+			}
+			return key;
+		}
+		function deleteitem(){
+			var key=selectdone();
+			window.localStorage.removeItem(key);
+			window.location.href=window.location.href;
+		}
+	</script>
+	<br>
+		<button  onclick="window.location.href='index.html?arg='+encodeURI(selectdone())">确定</button>
+		<button  onclick="window.location.href='editscrpt.html?arg='+encodeURI(selectdone())">编辑</button>
+		<button  onclick="deleteitem()">删除</button>
+		<button  onclick="window.location.href='index.html'">取消</button>
+	</br>
+</body>
+</html>

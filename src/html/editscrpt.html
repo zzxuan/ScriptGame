@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title>游戏大战</title>
+</head>
+<body>
+<h1>
+	游戏大战
+</h1>
+	<br>
+		标题:<input id="sctitle"  type="text" ></input>
+	</br>
+		<textarea id="scbody" rows="30" cols="150">//在此输入脚本</textarea>
+	<br>
+		<script src="fun.js"></script>
+		<script language="javascript" type="text/javascript"  > 
+		function savascript()
+		{
+			if(window.localStorage){
+			 //alert('This browser supports localStorage');
+			 var key=document.getElementById("sctitle").value;
+			 var v=document.getElementById("scbody").value;
+			 if(key==""){
+				alert('请输入标题');
+				return;
+			 }
+			 var storage = window.localStorage;
+			 storage.setItem(key,v);//设置b为"isaac"
+			window.location.href='index.html?arg='+encodeURI(key);
+			}else{
+			 alert('This browser does NOT support localStorage');
+			}
+		}
+
+		var arg=getParam() ;
+		if(arg!=""&&window.localStorage){
+			var storage = window.localStorage;
+			document.getElementById("sctitle").value=arg;
+			document.getElementById("scbody").value=storage.getItem(arg);
+		}
+		else{
+		var ss="//在此定义脚本:蛇每走一步都会调用次脚本\n"+
+		"var dic=getdic();//全局存储字典\n"+
+		"var w=getwidth(); //游戏区域宽 (50)\n"+
+		"var h=getheight();//游戏区域宽 (50)\n"+
+		"var fd=getfood();//获得食物 \n"+
+		"var fdx=fd.x; //食物x\n"+
+		"var fdy=fd.y; //食物y\n"+
+		"var snk=getsnake();//获得蛇身:为一个二维数组\n"+
+		"var hx=snk[0].x; //蛇头x\n"+
+		"var hy=snk[0].y; //蛇头y\n"+
+		"var d=direction(); //蛇的方向 0:向上 1:向下 2:向左 3:向右\n"+
+		"//可以使用的方法\n"+
+		"//toup():向上一步,todown():向下一步,toleft():向左一步,toright():向右一步\n";
+		document.getElementById("scbody").value=ss;
+		}
+		</script>
+		<script type="text/javascript" src="../fun.js"></script>
+		<button  onclick=savascript()>确定</button>
+		<button  onclick="window.location.href='index.html'">取消</button>
+	</br>
+	
+</body>
+
+</html>

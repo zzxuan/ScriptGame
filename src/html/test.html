@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+ <HEAD>
+  <TITLE> New Document </TITLE>
+  	<script src="snkf.js"></script>
+	<script>
+	
+		<!--
+		var ss=" 			var dic=getdic();"+
+" 			var fd=getfood(); "+
+" 			var fdx=fd.x; "+
+" 			var fdy=fd.y; "+
+" 			var w=getwidth(); "+
+" 			var h=getheight(); "+
+" 			var snk=getsnake();"+
+" 			var hx=snk[0].x; "+
+" 			var hy=snk[0].y; "+
+" 			var d=direction(); "+
+"			toup()";
+			function action(){
+					document.write(
+" <br> "+
+" 	<canvas id = 'mycanvas' width=\"500\" height=\"500\"> "+
+" 		您的浏览器不支持 "+
+" 	</canvas> "+
+" 	<script \"type=text/javascript\"> "+
+//" 		ctx=document.getElementById(\"mycanvas\").getContext(\"2d\"); "+
+" 			function expscriptfun(){ "+
+ss+
+" 			 "+
+" 		} "+
+"init();"+
+" 		draw(); "+
+" 		var timer=setInterval(function(){ "+
+" 			clear(); "+
+" 			expscriptfun(); "+
+" 			if(isdead()){ "+
+" 				clearInterval(timer); "+
+"				alert('GAME OVER');"+
+"				window.location.href='test2.html';"+
+" 			} "+
+" 			movesnake(); "+
+" 			draw(); "+
+" 		},25); "+
+" 	</script> "+
+" </br> "
+	);
+			}
+		//-->
+	</script>
+ </HEAD>
+<BODY>
+	<input name="but" id="but" type="button" onclick="action()"><br>
+ </BODY>
+</HTML>
